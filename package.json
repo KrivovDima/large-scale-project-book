@@ -1,0 +1,46 @@
+{
+    "name": "large-scale-project-book",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite --config vite.config.mock.ts --mode mock",
+        "build": "tsc && vite build --config vite.config.production.ts  --mode production",
+        "build-beta": "tsc && vite build --config vite.config.production.ts  --mode beta",
+        "build-local": "tsc && vite build --config vite.config.production.ts  --mode localapis",
+        "build-mock": "tsc && vite build --config vite.config.mock.ts --mode mock",
+        "preview": "vite preview --config vite.config.mock.ts --mode mock",
+        "start": "npm run dev",
+        "start-local": "vite --config vite.config.production.ts --mode localapis",
+        "with-jsonserver": "vite --config vite.config.jsonserver.ts --mode jsonserver",
+        "json-server-api": "json-server --port 3111 --watch json-server/db.json",
+        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "test": "vitest run --config vite.config.mock.ts",
+        "test-watch": "npm run test -- --watch"
+    },
+    "dependencies": {
+        "@reduxjs/toolkit": "^2.0.1",
+        "axios": "^1.6.5",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-redux": "^9.1.0"
+    },
+    "devDependencies": {
+        "@testing-library/react": "^14.1.2",
+        "@testing-library/user-event": "^14.5.2",
+        "@types/jest": "^29.5.11",
+        "@types/react": "^18.2.43",
+        "@types/react-dom": "^18.2.17",
+        "@typescript-eslint/eslint-plugin": "^6.14.0",
+        "@typescript-eslint/parser": "^6.14.0",
+        "@vitejs/plugin-react": "^4.2.1",
+        "eslint": "^8.55.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.5",
+        "jsdom": "^23.2.0",
+        "json-server": "^1.0.0-alpha.23",
+        "typescript": "^5.2.2",
+        "vite": "^5.0.8",
+        "vitest": "^1.2.1"
+    }
+}
