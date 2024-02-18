@@ -15,7 +15,7 @@
         "with-jsonserver": "vite --config vite.config.jsonserver.ts --mode jsonserver",
         "json-server-api": "json-server --port 3111 --watch json-server/db.json",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "test": "vitest run --config vite.config.mock.ts",
+        "test": "vitest run --config vite.config.mock.ts --mode mock",
         "test-watch": "npm run test -- --watch"
     },
     "dependencies": {

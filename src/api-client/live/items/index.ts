@@ -1,17 +1,6 @@
-import {
-    ItemsApiClientInterface,
-    ItemsApiClientModel,
-    ItemsApiClientOptions,
-} from "../../models/items";
+import { config } from "@/config";
+import { ItemsApiClientModel } from "../../models/items";
 
-const options: ItemsApiClientOptions = {
-    endpoints: {
-        fetchItems: "/path/to/your/real/api/end-point",
-    },
-};
-
-const itemsApiClient: ItemsApiClientInterface = new ItemsApiClientModel(
-    options
-);
+const itemsApiClient = new ItemsApiClientModel(config.items.apiClientOptions);
 
 export { itemsApiClient };

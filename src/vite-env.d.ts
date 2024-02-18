@@ -2,7 +2,7 @@
 /// <reference types="react" />
 
 interface ImportMetaEnv {
-    readonlyVITE_API_CLIENT: string;
+    readonly VITE_APP_CONFIG: string;
 }
 
 interface ImportMeta {

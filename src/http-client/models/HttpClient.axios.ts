@@ -1,13 +1,13 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { HttpClientInterface } from "./HttpClient.interface";
 import { HttpRequestParamsInterface } from "./HttpRequestParams.interface";
-import { UrlUtils } from "./UrlUtils";
+import { ParamsType, UrlUtils } from "./UrlUtils";
 import { HttpRequestType } from "./Constants";
 
 export class HttpClientAxios implements HttpClientInterface {
     constructor() {}
 
-    async request<R, P = void>(
+    async request<R, P extends ParamsType = {}>(
         parameters: HttpRequestParamsInterface<P>
     ): Promise<R> {
         const {
@@ -16,7 +16,7 @@ export class HttpClientAxios implements HttpClientInterface {
             requiresToken,
             headers,
             mockDelay,
-            payload,
+            payload = {},
         } = parameters;
 
         const fullUrl = UrlUtils.getFullUrlWithParams(endpoint, payload);
