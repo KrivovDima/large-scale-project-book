@@ -1,8 +1,8 @@
 import { Provider } from "react-redux";
 import { rootStore } from "./store";
-import ItemsView from "./views/Items.view";
 import { useLocalization } from "./localization";
 import { DebugFormatters } from "./components/shared/DebugFormatters.component";
+import { PrimitivesView } from "./views/Primitives.view";
 
 function App() {
     const { changeLocale, t, locales, currentLocale } = useLocalization();
@@ -40,7 +40,8 @@ function App() {
                     })}
                 </div>
                 <h1>{t("home.welcome")}</h1>
-                <ItemsView />
+                {/* <ItemsView /> */}
+                <PrimitivesView />
                 <DebugFormatters show />
             </div>
         </Provider>
