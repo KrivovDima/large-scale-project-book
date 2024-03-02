@@ -1,10 +1,10 @@
 type ElToggleProps = {
-    id: string;
+    id?: string;
     testid?: string;
     checked?: boolean;
     disabled?: boolean;
     addCss?: string;
-    onClicked: (id: string) => void;
+    onClicked?: (id: string | undefined) => void;
 };
 
 export const ElToggle = (props: ElToggleProps) => {
@@ -53,7 +53,7 @@ export const ElToggle = (props: ElToggleProps) => {
 
     const handleClick = () => {
         if (!disabled) {
-            onClicked(id);
+            onClicked?.(id);
         }
     };
 

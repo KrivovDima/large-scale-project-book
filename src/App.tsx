@@ -3,6 +3,7 @@ import { rootStore } from "./store";
 import { useLocalization } from "./localization";
 import { DebugFormatters } from "./components/shared/DebugFormatters.component";
 import { PrimitivesView } from "./views/Primitives.view";
+import ItemsView from "./views/Items.view";
 
 function App() {
     const { changeLocale, t, locales, currentLocale } = useLocalization();
@@ -10,8 +11,6 @@ function App() {
     const onLocaleClick = (lcid: string) => {
         changeLocale(lcid);
     };
-
-
 
     return (
         <Provider store={rootStore}>
@@ -42,7 +41,7 @@ function App() {
                     })}
                 </div>
                 <h1>{t("home.welcome")}</h1>
-                {/* <ItemsView /> */}
+                <ItemsView />
                 <PrimitivesView />
                 <DebugFormatters show />
             </div>

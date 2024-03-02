@@ -23,6 +23,7 @@ export const ItemsList: FC<Props> = ({ items, onItemSelect, loading }) => {
                         model={item}
                         onItemSelect={onItemSelect}
                         testId={`item-${item.id}`}
+                        isLast={index === items.length - 1}
                     />
                 ))}
             </ul>
