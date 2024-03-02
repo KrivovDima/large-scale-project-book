@@ -11,6 +11,8 @@ function App() {
         changeLocale(lcid);
     };
 
+
+
     return (
         <Provider store={rootStore}>
             <div className="app m-2 p-2 border-2 border-red-500">

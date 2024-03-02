@@ -1,4 +1,6 @@
 import { ElButton, ElText, ElToggle } from "@/components/primitives";
+import { ElIconAlert } from "@/components/primitives/icons";
+import { useModal } from "@/components/primitives/modals/useModal";
 import { useState } from "react";
 
 export const PrimitivesView = () => {
@@ -20,6 +22,33 @@ export const PrimitivesView = () => {
         if (stateItem) {
             stateItem.checked = !stateItem.checked;
             setState({ ...state });
+        }
+    };
+
+    const onOpenDialogClicked = async (id: string) => {
+        if (id === "open-modal-1") {
+            const modal = useModal({
+                cancelLabel: "Cancel",
+                confirmLabel: "Ok",
+            });
+
+            const result = await modal.prompt(
+                "Do you want to delete this record?"
+            );
+            console.log(result);
+        }
+
+        if (id === "open-modal-2") {
+            const modal = useModal({
+                cancelLabel: "Cancel",
+                confirmLabel: "Confirm?",
+                longDesc: "This has also a longer description and an icon",
+                icon: ElIconAlert,
+                iconAddClass: "text-red-600",
+            });
+
+            const result = await modal.prompt("Do you confirm this action?");
+            console.log(result);
         }
     };
 
@@ -54,6 +83,20 @@ export const PrimitivesView = () => {
                     label="This is a disabled button"
                     addCss="ml-2"
                     onClicked={onButtonClicked}
+                />
+                <ElButton
+                    id="open-modal-1"
+                    disabled={false}
+                    label="Open modal 1"
+                    addCss="ml-2"
+                    onClicked={onOpenDialogClicked}
+                />
+                <ElButton
+                    id="open-modal-2"
+                    disabled={false}
+                    label="Open modal 2"
+                    addCss="ml-2"
+                    onClicked={onOpenDialogClicked}
                 />
             </div>
 
