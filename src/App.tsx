@@ -4,6 +4,8 @@ import { useLocalization } from "./localization";
 import { DebugFormatters } from "./components/shared/DebugFormatters.component";
 import { PrimitivesView } from "./views/Primitives.view";
 import ItemsView from "./views/Items.view";
+import { Counter, SampleComp } from "my-component-library";
+import { randomId } from "@dkrivov/my-js-helpers";
 
 function App() {
     const { changeLocale, t, locales, currentLocale } = useLocalization();
@@ -14,6 +16,11 @@ function App() {
 
     return (
         <Provider store={rootStore}>
+            <div>
+                <SampleComp text="This is a sample component from my-component-library" />
+                <Counter />
+                <p>[randomId() result (from my-js-helpers): {randomId()}]</p>
+            </div>
             <div className="app m-2 p-2 border-2 border-red-500">
                 <div className="locale-selector">
                     {locales.map(({ key }) => {
